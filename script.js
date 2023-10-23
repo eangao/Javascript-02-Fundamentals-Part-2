@@ -147,16 +147,42 @@
 // Functions Calling Other Functions
 ///////////////////////////////////////
 
-function cutFruitPieces(fruit) {
-  return fruit * 4;
-}
+// function cutFruitPieces(fruit) {
+//   return fruit * 4;
+// }
 
-function fruitProcessor(apples, oranges) {
-  const applePieces = cutFruitPieces(apples);
-  const orangePieces = cutFruitPieces(oranges);
+// function fruitProcessor(apples, oranges) {
+//   const applePieces = cutFruitPieces(apples);
+//   const orangePieces = cutFruitPieces(oranges);
 
-  const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
-  return juice;
-}
+//   const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+//   return juice;
+// }
 
-console.log(fruitProcessor(2, 3));
+// console.log(fruitProcessor(2, 3));
+
+///////////////////////////////////////
+// Reviewing Functions
+///////////////////////////////////////
+
+const calAge = function (birthYear) {
+  return 2037 - birthYear;
+};
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+  const age = calAge(birthYear);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    console.log(`${firstName} retires in ${retirement} years`);
+    return retirement;
+    console.log(`${firstName} retires in ${retirement} years`); ////cannot be reacch
+  } else {
+    console.log(`${firstName} has already retired`);
+    return -1; // or return 99999   a number thats no meaning
+    console.log(`${firstName} has already retired`); //cannot be reacch
+  }
+};
+
+console.log(yearsUntilRetirement(1991, "Elmar"));
+console.log(yearsUntilRetirement(1950, "Mike"));
