@@ -108,37 +108,55 @@
 // Arrow Functions
 ///////////////////////////////////////
 
-// but there is actually a third type
-// of function that was added to JavaScript in ES6
-// and that's the arrow function.
-// And an arrow function is simply a special form
-// of function expression that is shorter
-// and therefore faster to write.
-// So let's actually get back this function expression
+// // but there is actually a third type
+// // of function that was added to JavaScript in ES6
+// // and that's the arrow function.
+// // And an arrow function is simply a special form
+// // of function expression that is shorter
+// // and therefore faster to write.
+// // So let's actually get back this function expression
 
-// Arrow function
-const calAge3 = (birthYear) => 2037 - birthYear;
-const age3 = calAge3(1991);
-console.log(age3);
-// So this value here will automatically be returned
-// without us having to explicitly write the return keyword.
+// // Arrow function
+// const calAge3 = (birthYear) => 2037 - birthYear;
+// const age3 = calAge3(1991);
+// console.log(age3);
+// // So this value here will automatically be returned
+// // without us having to explicitly write the return keyword.
 
-const yearsUntilRetirement = (birthYear, firstName) => {
-  const age = 2037 - birthYear;
-  const retirement = 65 - age;
-  return `${firstName} retires in ${retirement} years`;
-};
+// const yearsUntilRetirement = (birthYear, firstName) => {
+//   const age = 2037 - birthYear;
+//   const retirement = 65 - age;
+//   return `${firstName} retires in ${retirement} years`;
+// };
 
-console.log(yearsUntilRetirement(1991, "Elmar"));
-console.log(yearsUntilRetirement(1980, "Bob"));
+// console.log(yearsUntilRetirement(1991, "Elmar"));
+// console.log(yearsUntilRetirement(1980, "Bob"));
 
-// What type of function should I use?
-// Should I use arrow functions for everything
-// since they're so easy to write?
-// And well, the answer is no.
-// But it's also complicated.
-// That's because there is another fundamental difference
-// between the arrow function and more traditional functions.
-// So function declarations and function expressions.
-// It's the fact that arrow function
-// do not get a so-called this keyword.
+// // What type of function should I use?
+// // Should I use arrow functions for everything
+// // since they're so easy to write?
+// // And well, the answer is no.
+// // But it's also complicated.
+// // That's because there is another fundamental difference
+// // between the arrow function and more traditional functions.
+// // So function declarations and function expressions.
+// // It's the fact that arrow function
+// // do not get a so-called this keyword.
+
+///////////////////////////////////////
+// Functions Calling Other Functions
+///////////////////////////////////////
+
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+
+  const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+  return juice;
+}
+
+console.log(fruitProcessor(2, 3));
