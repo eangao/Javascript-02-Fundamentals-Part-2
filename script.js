@@ -75,31 +75,70 @@
 // Function Declarations vs. Expressions
 // ///////////////////////////////////////
 
-// Function Declarations
-const age1 = calAge1(1991); // arguments or parameter
+// // Function Declarations
+// const age1 = calAge1(1991); // arguments or parameter
 
-function calAge1(birthYear) {
-  // const age = 2037 - birthYear;
-  // return age;
+// function calAge1(birthYear) {
+//   // const age = 2037 - birthYear;
+//   // return age;
 
-  return 2037 - birthYear;
-}
+//   return 2037 - birthYear;
+// }
 
-// Function Expressions
-// Expression produce value
-const calAge2 = function (birthYear) {
-  return 2037 - birthYear;
+// // Function Expressions
+// // Expression produce value
+// const calAge2 = function (birthYear) {
+//   return 2037 - birthYear;
+// };
+// const age2 = calAge2(1991);
+// console.log(age1, age2);
+
+// // So what's the big difference between
+// // function declarations and function expressions?
+// // Well, the main practical difference
+// // is that we can actually call function declarations
+// // before they are defined in the code.
+// // So let me show that to you.
+// // So here is the declaration, right?
+// // This is the function declaration and as I just said,
+// // we can call them in a code before they are defined.
+// // So now we're calling it first and then defining it later.
+
+///////////////////////////////////////
+// Arrow Functions
+///////////////////////////////////////
+
+// but there is actually a third type
+// of function that was added to JavaScript in ES6
+// and that's the arrow function.
+// And an arrow function is simply a special form
+// of function expression that is shorter
+// and therefore faster to write.
+// So let's actually get back this function expression
+
+// Arrow function
+const calAge3 = (birthYear) => 2037 - birthYear;
+const age3 = calAge3(1991);
+console.log(age3);
+// So this value here will automatically be returned
+// without us having to explicitly write the return keyword.
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = 2037 - birthYear;
+  const retirement = 65 - age;
+  return `${firstName} retires in ${retirement} years`;
 };
-const age2 = calAge2(1991);
-console.log(age1, age2);
 
-// So what's the big difference between
-// function declarations and function expressions?
-// Well, the main practical difference
-// is that we can actually call function declarations
-// before they are defined in the code.
-// So let me show that to you.
-// So here is the declaration, right?
-// This is the function declaration and as I just said,
-// we can call them in a code before they are defined.
-// So now we're calling it first and then defining it later.
+console.log(yearsUntilRetirement(1991, "Elmar"));
+console.log(yearsUntilRetirement(1980, "Bob"));
+
+// What type of function should I use?
+// Should I use arrow functions for everything
+// since they're so easy to write?
+// And well, the answer is no.
+// But it's also complicated.
+// That's because there is another fundamental difference
+// between the arrow function and more traditional functions.
+// So function declarations and function expressions.
+// It's the fact that arrow function
+// do not get a so-called this keyword.
