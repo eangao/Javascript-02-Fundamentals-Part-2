@@ -42,31 +42,64 @@
 // Functions
 ///////////////////////////////////////
 
-// Well in the most simple form a function
-// is simply a piece of code that we can reuse
-// over and over again in our code.
-// So it's a little bit like a variable
-// but for whole chunks of code.
-// So remember a variable holds value
-// but a function can hold one or more complete lines of code.
+// // Well in the most simple form a function
+// // is simply a piece of code that we can reuse
+// // over and over again in our code.
+// // So it's a little bit like a variable
+// // but for whole chunks of code.
+// // So remember a variable holds value
+// // but a function can hold one or more complete lines of code.
 
-function logger() {
-  console.log("My name is Elmar");
+// function logger() {
+//   console.log("My name is Elmar");
+// }
+
+// // calling / running / invoking function
+// logger();
+// logger();
+// logger();
+// //                         parameter
+// function fruitProcessor(apples, oranges) {
+//   // console.log(apples, oranges);
+//   const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
+//   return juice;
+// }
+
+// const appleJuice = fruitProcessor(5, 0); //argument
+// console.log(appleJuice);
+
+// const appleOrangeJuice = fruitProcessor(2, 4);
+// console.log(appleOrangeJuice);
+
+///////////////////////////////////////
+// Function Declarations vs. Expressions
+// ///////////////////////////////////////
+
+// Function Declarations
+const age1 = calAge1(1991); // arguments or parameter
+
+function calAge1(birthYear) {
+  // const age = 2037 - birthYear;
+  // return age;
+
+  return 2037 - birthYear;
 }
 
-// calling / running / invoking function
-logger();
-logger();
-logger();
-//                         parameter
-function fruitProcessor(apples, oranges) {
-  // console.log(apples, oranges);
-  const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
-  return juice;
-}
+// Function Expressions
+// Expression produce value
+const calAge2 = function (birthYear) {
+  return 2037 - birthYear;
+};
+const age2 = calAge2(1991);
+console.log(age1, age2);
 
-const appleJuice = fruitProcessor(5, 0); //argument
-console.log(appleJuice);
-
-const appleOrangeJuice = fruitProcessor(2, 4);
-console.log(appleOrangeJuice);
+// So what's the big difference between
+// function declarations and function expressions?
+// Well, the main practical difference
+// is that we can actually call function declarations
+// before they are defined in the code.
+// So let me show that to you.
+// So here is the declaration, right?
+// This is the function declaration and as I just said,
+// we can call them in a code before they are defined.
+// So now we're calling it first and then defining it later.
