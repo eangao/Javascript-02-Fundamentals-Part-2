@@ -545,84 +545,153 @@
 // Object Methods
 /////////////////////////////////////////////////
 
-// //Object
-const elmarObject = {
-  firstName: "Elmar",
-  lastName: "Angao",
-  birthYear: 1985,
-  job: "teacher",
-  friends: ["Michael", "Peter", "Steven"],
-  hasDriverLicense: true,
+// // //Object
+// const elmarObject = {
+//   firstName: "Elmar",
+//   lastName: "Angao",
+//   birthYear: 1985,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+//   hasDriverLicense: true,
 
-  // calcAge: function (birthYear) {
-  //   return 2037 - birthYear;
-  // },
+//   // calcAge: function (birthYear) {
+//   //   return 2037 - birthYear;
+//   // },
 
-  // And for that again, we will use the this keyword.
-  // So the this key word
-  // or the this variable is basically equal to the object
-  // on which the method is called,
-  // or in other words,
-  // it is equal to the object calling the method.
+//   // And for that again, we will use the this keyword.
+//   // So the this key word
+//   // or the this variable is basically equal to the object
+//   // on which the method is called,
+//   // or in other words,
+//   // it is equal to the object calling the method.
 
-  // calcAge: function () {
-  //   console.log(this);
-  //   return 2037 - this.birthYear;
-  // },
+//   // calcAge: function () {
+//   //   console.log(this);
+//   //   return 2037 - this.birthYear;
+//   // },
 
-  // we can now use the this keyword
-  // also to store a new property.
-  // So, we can say this.age is equal to this here.
-  // So we calculate the age,
-  // and then we create a new property on the current object.
-  calcAge: function () {
-    this.age = 2037 - this.birthYear;
-    return this.age;
-  },
+//   // we can now use the this keyword
+//   // also to store a new property.
+//   // So, we can say this.age is equal to this here.
+//   // So we calculate the age,
+//   // and then we create a new property on the current object.
+//   calcAge: function () {
+//     this.age = 2037 - this.birthYear;
+//     return this.age;
+//   },
 
-  getSummary: function () {
-    return `${
-      this.firstName
-    } is a ${this.calcAge()}-year old teacher, and he has ${
-      this.hasDriverLicense ? "a" : "no"
-    } driver's license`;
+//   getSummary: function () {
+//     return `${
+//       this.firstName
+//     } is a ${this.calcAge()}-year old teacher, and he has ${
+//       this.hasDriverLicense ? "a" : "no"
+//     } driver's license`;
+//   },
+// };
+
+// // And so that's why it was very important
+// // that you understood what a function expression actually is
+// // because here we need to function expression
+// // to create this method.
+// // And that's what this function is called.
+// // So any function that is attached
+// // to an object is called a method.
+
+// // So if you can think of functions as simply being values
+// // then you can see that a method is actually also a property.
+// // It just happens to be a property
+// // that holds a function value.
+
+// // console.log(elmarObject.calcAge(1991));
+// // console.log(elmarObject["calcAge"](1992));
+
+// console.log(elmarObject.calcAge());
+
+// console.log(elmarObject.age);
+// console.log(elmarObject.age);
+// console.log(elmarObject.age);
+
+// // CHALLENGE
+// // "Elmar is a 46-year old teacher, and he has a driver's license"
+// console.log(elmarObject.getSummary());
+
+// // that arrays are actually also objects,
+// // they are just a special kind of object.
+// // And so they have functions, or in other words
+// // they have methods that we can use to manipulate them
+// // like push, pop, shift and unshift and many more.
+// // All right? So in this lecture,
+// // we created our own methods on our own objects.
+// // But here we basically used built in methods on a race.
+// // And so once again that means
+// // that the race are actually also objects,
+// // that's why they can have methods as well.
+
+///////////////////////////////////////////////////////
+// JavaScript Fundamentals – Part 2
+// Coding Exercise 7: CHALLENGE #3
+///////////////////////////////////////////////////////
+
+// Let's go back to Mark and John comparing their BMIs! This time, let's use objects to
+// implement the calculations! Remember: BMI = mass / height ** 2 = mass
+// / (height * height) (mass in kg and height in meter)
+
+// Your tasks:
+// 1. For each of them, create an object with properties for their full name, mass, and
+// height (Mark Miller and John Smith)
+// 2. Create a 'calcBMI' method on each object to calculate the BMI (the same
+// method on both objects). Store the BMI value to a property, and also return it
+// from the method
+// 3. Log to the console who has the higher BMI, together with the full name and the
+// respective BMI. Example: "John's BMI (28.3) is higher than Mark's (23.9)!"
+
+// Test data: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m
+// tall.
+
+// GOOD LUCK �
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
   },
 };
 
-// And so that's why it was very important
-// that you understood what a function expression actually is
-// because here we need to function expression
-// to create this method.
-// And that's what this function is called.
-// So any function that is attached
-// to an object is called a method.
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
 
-// So if you can think of functions as simply being values
-// then you can see that a method is actually also a property.
-// It just happens to be a property
-// that holds a function value.
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
 
-// console.log(elmarObject.calcAge(1991));
-// console.log(elmarObject["calcAge"](1992));
+mark.calcBMI();
+john.calcBMI();
+console.log(mark.bmi, john.bmi);
 
-console.log(elmarObject.calcAge());
+// console.log(
+//   `${john.fullName}'s BMI (${john.calcBMI()}) is ${
+//     john.calcBMI() > mark.calcBMI() ? "higher than" : "lower than"
+//   } ${mark.fullName}'s (${mark.calcBMI()})!`
+// );
 
-console.log(elmarObject.age);
-console.log(elmarObject.age);
-console.log(elmarObject.age);
-
-// CHALLENGE
-// "Elmar is a 46-year old teacher, and he has a driver's license"
-console.log(elmarObject.getSummary());
-
-// that arrays are actually also objects,
-// they are just a special kind of object.
-// And so they have functions, or in other words
-// they have methods that we can use to manipulate them
-// like push, pop, shift and unshift and many more.
-// All right? So in this lecture,
-// we created our own methods on our own objects.
-// But here we basically used built in methods on a race.
-// And so once again that means
-// that the race are actually also objects,
-// that's why they can have methods as well.
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.fullName}'s BMI (${mark.calcBMI()}) is higher than ${
+      john.fullName
+    }'s (${john.calcBMI()})!`
+  );
+} else if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName}'s BMI (${john.calcBMI()}) is higher than ${
+      mark.fullName
+    }'s (${mark.calcBMI()})!`
+  );
+}
