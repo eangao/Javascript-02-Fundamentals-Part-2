@@ -192,58 +192,129 @@
 // Coding Exercise 5: CHALLENGE #1
 ///////////////////////////////////////
 
-// Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new
-// gymnastics discipline, which works differently.
-// Each team competes 3 times, and then the average of the 3 scores is calculated (so
-// one average score per team).
-// A team only wins if it has at least double the average score of the other team.
-// Otherwise, no team wins!
+// // Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new
+// // gymnastics discipline, which works differently.
+// // Each team competes 3 times, and then the average of the 3 scores is calculated (so
+// // one average score per team).
+// // A team only wins if it has at least double the average score of the other team.
+// // Otherwise, no team wins!
 
-// Your tasks:
-// 1. Create an arrow function 'calcAverage' to calculate the average of 3 scores
-// 2. Use the function to calculate the average for both teams
-// 3. Create a function 'checkWinner' that takes the average score of each team
-// as parameters ('avgDolhins' and 'avgKoalas'), and then logs the winner
-// to the console, together with the victory points, according to the rule above.
-// Example: "Koalas win (30 vs. 13)"
-// 4. Use the 'checkWinner' function to determine the winner for both Data 1 and
-// Data 2
-// 5. Ignore draws this time
+// // Your tasks:
+// // 1. Create an arrow function 'calcAverage' to calculate the average of 3 scores
+// // 2. Use the function to calculate the average for both teams
+// // 3. Create a function 'checkWinner' that takes the average score of each team
+// // as parameters ('avgDolhins' and 'avgKoalas'), and then logs the winner
+// // to the console, together with the victory points, according to the rule above.
+// // Example: "Koalas win (30 vs. 13)"
+// // 4. Use the 'checkWinner' function to determine the winner for both Data 1 and
+// // Data 2
+// // 5. Ignore draws this time
 
-// Test data:
-// § Data 1: Dolphins score 44, 23 and 71. Koalas score 65, 54 and 49
-// § Data 2: Dolphins score 85, 54 and 41. Koalas score 23, 34 and 27
+// // Test data:
+// // § Data 1: Dolphins score 44, 23 and 71. Koalas score 65, 54 and 49
+// // § Data 2: Dolphins score 85, 54 and 41. Koalas score 23, 34 and 27
 
-// Hints:
-// § To calculate average of 3 values, add them all together and divide by 3
-// § To check if number A is at least double number B, check for A >= 2 * B.
-// Apply this to the team's average scores �
+// // Hints:
+// // § To calculate average of 3 values, add them all together and divide by 3
+// // § To check if number A is at least double number B, check for A >= 2 * B.
+// // Apply this to the team's average scores �
 
-// GOOD LUCK �
+// // GOOD LUCK �
 
-const calAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+// const calAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 
-// Test1
-let scoreDolphins = calAverage(44, 23, 71);
-let scoreKoalas = calAverage(65, 54, 49);
-console.log(scoreDolphins, scoreKoalas);
+// // Test1
+// let scoreDolphins = calAverage(44, 23, 71);
+// let scoreKoalas = calAverage(65, 54, 49);
+// console.log(scoreDolphins, scoreKoalas);
 
-const checkWinner = function (avgDolphins, avgKoalas) {
-  if (avgDolphins >= avgKoalas * 2) {
-    console.log(`${"Dolphins"} win (${avgDolphins} vs ${avgKoalas}`);
-  } else if (avgKoalas >= avgDolphins * 2) {
-    console.log(`${"Koalas"} win (${avgDolphins} vs ${avgKoalas}`);
-  } else {
-    console.log("No team wins!");
-  }
+// const checkWinner = function (avgDolphins, avgKoalas) {
+//   if (avgDolphins >= avgKoalas * 2) {
+//     console.log(`${"Dolphins"} win (${avgDolphins} vs ${avgKoalas}`);
+//   } else if (avgKoalas >= avgDolphins * 2) {
+//     console.log(`${"Koalas"} win (${avgDolphins} vs ${avgKoalas}`);
+//   } else {
+//     console.log("No team wins!");
+//   }
+// };
+
+// checkWinner(scoreDolphins, scoreKoalas);
+
+// checkWinner(500, 150);
+
+// // // Test2
+// scoreDolphins = calAverage(85, 54, 41);
+// scoreKoalas = calAverage(23, 34, 27);
+// console.log(scoreDolphins, scoreKoalas);
+// checkWinner(scoreDolphins, scoreKoalas);
+
+///////////////////////////////////////
+// Introduction to Arrays
+///////////////////////////////////////
+
+// Array is a data structure
+
+const friend1 = "Michael";
+const friend2 = "Steven";
+const friend3 = "Peter";
+
+// 1 way
+const friends = ["Michael", "Steven", "Peter"];
+console.log(friends);
+
+// 2 way
+const y = new Array(1991, 1984, 2008, 2020);
+
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = "Jay";
+console.log(friends);
+
+// Well what I didn't tell you at the time,
+// is that only primitive values, are immutable.
+// But an Array is not a primitive value.
+// And so we can actually always change it so we can mutate it.
+// So what you need to know for now
+// is that we can actually mutate Arrays
+// even though they were declared with const.
+
+// friends = ["Bob", "Alice"]; // Iligal
+
+// Next up, I want to show you that an Array
+// can actually hold values with different types
+// all at the same time.
+
+// and actually we could even put other Arrays
+// inside of an Array.
+const firstName = "Elmar";
+const elmar = [firstName, "Angao", 2037 - 1991, "teacher", friends];
+console.log(elmar);
+console.log(elmar.length);
+
+// Exercise
+const calAge = function (birthYear) {
+  return 2037 - birthYear;
 };
 
-checkWinner(scoreDolphins, scoreKoalas);
+const years = [1990, 1967, 2002, 2010];
 
-checkWinner(500, 150);
+// console.log(calAge(years)); //NAN
+const age1 = calAge(years[0]);
+const age2 = calAge(years[1]);
+const age3 = calAge(years[years.length - 1]);
+console.log([age1, age2, age3]);
 
-// // Test2
-scoreDolphins = calAverage(85, 54, 41);
-scoreKoalas = calAverage(23, 34, 27);
-console.log(scoreDolphins, scoreKoalas);
-checkWinner(scoreDolphins, scoreKoalas);
+// So basically we can place function calls
+// into an Array just fine,
+// because they will produce a value.
+const ages = [
+  calAge(years[0]),
+  calAge(years[2]),
+  calAge(years[years.length - 1]),
+];
+
+console.log(ages);
