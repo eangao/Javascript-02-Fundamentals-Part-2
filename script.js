@@ -322,44 +322,89 @@
 // Basic Array Operations (Methods)
 ///////////////////////////////////////
 
-const friends = ["Michael", "Steven", "Peter"];
+// const friends = ["Michael", "Steven", "Peter"];
 
-//Add element
-// push Add element to the end of array and return the lenght
-const newLength = friends.push("Jay");
-console.log(friends);
-console.log(newLength);
+// //Add element
+// // push Add element to the end of array and return the lenght
+// const newLength = friends.push("Jay");
+// console.log(friends);
+// console.log(newLength);
 
-// So again push is a method which technically is a function
-// and we call that function directly on the friends array.
-// So the push function is kind of attached
-// to the friends array and if you're wondering why that is
-// we will once more learn that a little bit later
+// // So again push is a method which technically is a function
+// // and we call that function directly on the friends array.
+// // So the push function is kind of attached
+// // to the friends array and if you're wondering why that is
+// // we will once more learn that a little bit later
 
-//unshift  Add element to the beginning of an array  and return the lenght
-friends.unshift("John");
-console.log(friends);
+// //unshift  Add element to the beginning of an array  and return the lenght
+// friends.unshift("John");
+// console.log(friends);
 
-// pop Remove elements but did not return the array and the lenght
-// pop return the remove element
-friends.pop(); //remove the last element
-const popped = friends.pop(); //remove the last element
-console.log(popped);
-console.log(friends);
+// // pop Remove elements but did not return the array and the lenght
+// // pop return the remove element
+// friends.pop(); //remove the last element
+// const popped = friends.pop(); //remove the last element
+// console.log(popped);
+// console.log(friends);
 
-// shift Remove first element from an array and return the array with the remaining element
-friends.shift();
-console.log(friends);
+// // shift Remove first element from an array and return the array with the remaining element
+// friends.shift();
+// console.log(friends);
 
-console.log(friends.indexOf("Steven"));
-console.log(friends.indexOf("Bob")); //Not in an array it will return -1
+// console.log(friends.indexOf("Steven"));
+// console.log(friends.indexOf("Bob")); //Not in an array it will return -1
 
-friends.push(23);
-console.log(friends.includes("Steven")); // return true
-console.log(friends.includes("Bob")); //Not in an array it will return false
-console.log(friends.includes("23")); // return false - strict equality
-console.log(friends.includes(23)); // return true
+// friends.push(23);
+// console.log(friends.includes("Steven")); // return true
+// console.log(friends.includes("Bob")); //Not in an array it will return false
+// console.log(friends.includes("23")); // return false - strict equality
+// console.log(friends.includes(23)); // return true
 
-if (friends.includes("Steven")) {
-  console.log(`You have a friend called Steven`);
-}
+// if (friends.includes("Steven")) {
+//   console.log(`You have a friend called Steven`);
+// }
+
+///////////////////////////////////////
+// JavaScript Fundamentals – Part 2
+// Coding Exercise 6: CHALLENGE #2
+///////////////////////////////////////
+// Steven is still building his tip calculator, using the same rules as before: Tip 15% of
+// the bill if the bill value is between 50 and 300, and if the value is different, the tip is
+// 20%.
+
+// Your tasks:
+// 1. Write a function 'calcTip' that takes any bill value as an input and returns
+// the corresponding tip, calculated based on the rules above (you can check out
+// the code from first tip calculator challenge if you need to). Use the function
+// type you like the most. Test the function using a bill value of 100
+// 2. And now let's use arrays! So create an array 'bills' containing the test data
+// below
+// 3. Create an array 'tips' containing the tip value for each bill, calculated from
+// the function you created before
+// 4. Bonus: Create an array 'total' containing the total values, so the bill + tip
+
+// Test data: 125, 555 and 44
+
+// Hint: Remember that an array needs a value in each position, and that value can
+// actually be the returned value of a function! So you can just call a function as array
+// values (so don't store the tip values in separate variables first, but right in the new
+// array) �
+// GOOD LUCK �
+
+// Using arrow function
+// const calcTip = (bill) =>
+//   bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+console.log(calcTip(100));
+
+const bills = [125, 555, 44];
+console.log(bills);
+
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+console.log(tips);
+
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+console.log(totals);
