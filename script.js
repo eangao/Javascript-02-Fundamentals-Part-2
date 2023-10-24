@@ -463,80 +463,166 @@
 ///////////////////////////////////////
 // Dot vs. Bracket Notation
 ///////////////////////////////////////
-//Object
+// //Object
+// const elmarObject = {
+//   firstName: "Elmar",
+//   lastName: "Angao",
+//   age: 2037 - 1985,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+// };
+
+// console.log(elmarObject);
+
+// console.log(elmarObject.lastName); //dot notation
+
+// console.log(elmarObject["lastName"]); // Bracket notation
+
+// // Bracket we can put any expresion
+// const nameKey = "Name";
+// console.log(elmarObject["first" + nameKey]);
+// console.log(elmarObject["last" + nameKey]);
+
+// // console.log(elmarObject."last" + nameKey);  //won't work
+
+// // So in what situations should we use the dot notation
+// // and when do we have to use deep brackets notation?
+// // And I kind of already replied to that,
+// // but this is just to recap.
+// // So when we need to first compute the property name,
+// // like we did here with the first and last name,
+// // then of course we have to use the bracket notation
+// // in any other case, just use the dot notation,
+// // which looks a lot cleaner and it's also easier to use, okay.
+// // And now to make the need for the bracket notation
+// // even more clear, let me show you another example,
+// // which I think is gonna be really fun.
+// // So let's say that we don't know yet
+// // which property we want to show,
+// // and instead we get this information
+// // from some user interface
+// // so, for that we can use the prompt function.
+// // Remember, so we can us
+
+// const interestedIn = prompt(
+//   "What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends"
+// );
+// console.log(elmarObject.interestedIn); //undefined
+// console.log(elmarObject[interestedIn]);
+
+// // And so let me tell you now that undefined is what we get
+// // when we try to access a property
+// // on an object that does not exist.
+
+// if (elmarObject[interestedIn]) {
+//   console.log(elmarObject[interestedIn]);
+// } else {
+//   console.log(
+//     "Wrong request! Choose between firstName, LastName, age, job, and friends"
+//   );
+// }
+
+// // add properties in object
+// elmarObject.location = "Philippines";
+// elmarObject["twitter"] = "@elmar";
+// console.log(elmarObject);
+
+// // CHALLENGES
+// // "Elmar has 3 friends, and his best friend is called Michael"
+// console.log(
+//   elmarObject.firstName +
+//     " has " +
+//     elmarObject.friends.length +
+//     " friends, and his best friend is called " +
+//     elmarObject.friends[0]
+// );
+
+// console.log(
+//   `${elmarObject.firstName} has ${elmarObject.friends.length} friends, and his best friend is called ${elmarObject.friends[0]}`
+// );
+
+/////////////////////////////////////////////////
+// Object Methods
+/////////////////////////////////////////////////
+
+// //Object
 const elmarObject = {
   firstName: "Elmar",
   lastName: "Angao",
-  age: 2037 - 1985,
+  birthYear: 1985,
   job: "teacher",
   friends: ["Michael", "Peter", "Steven"],
+  hasDriverLicense: true,
+
+  // calcAge: function (birthYear) {
+  //   return 2037 - birthYear;
+  // },
+
+  // And for that again, we will use the this keyword.
+  // So the this key word
+  // or the this variable is basically equal to the object
+  // on which the method is called,
+  // or in other words,
+  // it is equal to the object calling the method.
+
+  // calcAge: function () {
+  //   console.log(this);
+  //   return 2037 - this.birthYear;
+  // },
+
+  // we can now use the this keyword
+  // also to store a new property.
+  // So, we can say this.age is equal to this here.
+  // So we calculate the age,
+  // and then we create a new property on the current object.
+  calcAge: function () {
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${
+      this.firstName
+    } is a ${this.calcAge()}-year old teacher, and he has ${
+      this.hasDriverLicense ? "a" : "no"
+    } driver's license`;
+  },
 };
 
-console.log(elmarObject);
+// And so that's why it was very important
+// that you understood what a function expression actually is
+// because here we need to function expression
+// to create this method.
+// And that's what this function is called.
+// So any function that is attached
+// to an object is called a method.
 
-console.log(elmarObject.lastName); //dot notation
+// So if you can think of functions as simply being values
+// then you can see that a method is actually also a property.
+// It just happens to be a property
+// that holds a function value.
 
-console.log(elmarObject["lastName"]); // Bracket notation
+// console.log(elmarObject.calcAge(1991));
+// console.log(elmarObject["calcAge"](1992));
 
-// Bracket we can put any expresion
-const nameKey = "Name";
-console.log(elmarObject["first" + nameKey]);
-console.log(elmarObject["last" + nameKey]);
+console.log(elmarObject.calcAge());
 
-// console.log(elmarObject."last" + nameKey);  //won't work
+console.log(elmarObject.age);
+console.log(elmarObject.age);
+console.log(elmarObject.age);
 
-// So in what situations should we use the dot notation
-// and when do we have to use deep brackets notation?
-// And I kind of already replied to that,
-// but this is just to recap.
-// So when we need to first compute the property name,
-// like we did here with the first and last name,
-// then of course we have to use the bracket notation
-// in any other case, just use the dot notation,
-// which looks a lot cleaner and it's also easier to use, okay.
-// And now to make the need for the bracket notation
-// even more clear, let me show you another example,
-// which I think is gonna be really fun.
-// So let's say that we don't know yet
-// which property we want to show,
-// and instead we get this information
-// from some user interface
-// so, for that we can use the prompt function.
-// Remember, so we can us
+// CHALLENGE
+// "Elmar is a 46-year old teacher, and he has a driver's license"
+console.log(elmarObject.getSummary());
 
-const interestedIn = prompt(
-  "What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends"
-);
-console.log(elmarObject.interestedIn); //undefined
-console.log(elmarObject[interestedIn]);
-
-// And so let me tell you now that undefined is what we get
-// when we try to access a property
-// on an object that does not exist.
-
-if (elmarObject[interestedIn]) {
-  console.log(elmarObject[interestedIn]);
-} else {
-  console.log(
-    "Wrong request! Choose between firstName, LastName, age, job, and friends"
-  );
-}
-
-// add properties in object
-elmarObject.location = "Philippines";
-elmarObject["twitter"] = "@elmar";
-console.log(elmarObject);
-
-// CHALLENGES
-// "Elmar has 3 friends, and his best friend is called Michael"
-console.log(
-  elmarObject.firstName +
-    " has " +
-    elmarObject.friends.length +
-    " friends, and his best friend is called " +
-    elmarObject.friends[0]
-);
-
-console.log(
-  `${elmarObject.firstName} has ${elmarObject.friends.length} friends, and his best friend is called ${elmarObject.friends[0]}`
-);
+// that arrays are actually also objects,
+// they are just a special kind of object.
+// And so they have functions, or in other words
+// they have methods that we can use to manipulate them
+// like push, pop, shift and unshift and many more.
+// All right? So in this lecture,
+// we created our own methods on our own objects.
+// But here we basically used built in methods on a race.
+// And so once again that means
+// that the race are actually also objects,
+// that's why they can have methods as well.
