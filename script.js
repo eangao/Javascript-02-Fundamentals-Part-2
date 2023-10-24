@@ -10,7 +10,7 @@
 // // is to write this ring at the beginning of the script
 // // so use strict and that's it.
 
-// "use strict"; //activate strict mode
+"use strict"; //activate strict mode
 
 // // So basically it helps us introduce the bugs into our code
 // // and that's because of 2 reasons.
@@ -252,69 +252,114 @@
 // Introduction to Arrays
 ///////////////////////////////////////
 
-// Array is a data structure
+// // Array is a data structure
 
-const friend1 = "Michael";
-const friend2 = "Steven";
-const friend3 = "Peter";
+// const friend1 = "Michael";
+// const friend2 = "Steven";
+// const friend3 = "Peter";
 
-// 1 way
+// // 1 way
+// const friends = ["Michael", "Steven", "Peter"];
+// console.log(friends);
+
+// // 2 way
+// const y = new Array(1991, 1984, 2008, 2020);
+
+// console.log(friends[0]);
+// console.log(friends[2]);
+
+// console.log(friends.length);
+// console.log(friends[friends.length - 1]);
+
+// friends[2] = "Jay";
+// console.log(friends);
+
+// // Well what I didn't tell you at the time,
+// // is that only primitive values, are immutable.
+// // But an Array is not a primitive value.
+// // And so we can actually always change it so we can mutate it.
+// // So what you need to know for now
+// // is that we can actually mutate Arrays
+// // even though they were declared with const.
+
+// // friends = ["Bob", "Alice"]; // Iligal
+
+// // Next up, I want to show you that an Array
+// // can actually hold values with different types
+// // all at the same time.
+
+// // and actually we could even put other Arrays
+// // inside of an Array.
+// const firstName = "Elmar";
+// const elmar = [firstName, "Angao", 2037 - 1991, "teacher", friends];
+// console.log(elmar);
+// console.log(elmar.length);
+
+// // Exercise
+// const calAge = function (birthYear) {
+//   return 2037 - birthYear;
+// };
+
+// const years = [1990, 1967, 2002, 2010];
+
+// // console.log(calAge(years)); //NAN
+// const age1 = calAge(years[0]);
+// const age2 = calAge(years[1]);
+// const age3 = calAge(years[years.length - 1]);
+// console.log([age1, age2, age3]);
+
+// // So basically we can place function calls
+// // into an Array just fine,
+// // because they will produce a value.
+// const ages = [
+//   calAge(years[0]),
+//   calAge(years[2]),
+//   calAge(years[years.length - 1]),
+// ];
+// console.log(ages);
+
+///////////////////////////////////////
+// Basic Array Operations (Methods)
+///////////////////////////////////////
+
 const friends = ["Michael", "Steven", "Peter"];
+
+//Add element
+// push Add element to the end of array and return the lenght
+const newLength = friends.push("Jay");
+console.log(friends);
+console.log(newLength);
+
+// So again push is a method which technically is a function
+// and we call that function directly on the friends array.
+// So the push function is kind of attached
+// to the friends array and if you're wondering why that is
+// we will once more learn that a little bit later
+
+//unshift  Add element to the beginning of an array  and return the lenght
+friends.unshift("John");
 console.log(friends);
 
-// 2 way
-const y = new Array(1991, 1984, 2008, 2020);
-
-console.log(friends[0]);
-console.log(friends[2]);
-
-console.log(friends.length);
-console.log(friends[friends.length - 1]);
-
-friends[2] = "Jay";
+// pop Remove elements but did not return the array and the lenght
+// pop return the remove element
+friends.pop(); //remove the last element
+const popped = friends.pop(); //remove the last element
+console.log(popped);
 console.log(friends);
 
-// Well what I didn't tell you at the time,
-// is that only primitive values, are immutable.
-// But an Array is not a primitive value.
-// And so we can actually always change it so we can mutate it.
-// So what you need to know for now
-// is that we can actually mutate Arrays
-// even though they were declared with const.
+// shift Remove first element from an array and return the array with the remaining element
+friends.shift();
+console.log(friends);
 
-// friends = ["Bob", "Alice"]; // Iligal
+console.log(friends.indexOf("Steven"));
+console.log(friends.indexOf("Bob")); //Not in an array it will return -1
 
-// Next up, I want to show you that an Array
-// can actually hold values with different types
-// all at the same time.
+friends.push(23);
+console.log(friends.includes("Steven")); // return true
+console.log(friends.includes("Bob")); //Not in an array it will return false
+console.log(friends.includes("23")); // return false - strict equality
+console.log(friends.includes(23)); // return true
 
-// and actually we could even put other Arrays
-// inside of an Array.
-const firstName = "Elmar";
-const elmar = [firstName, "Angao", 2037 - 1991, "teacher", friends];
-console.log(elmar);
-console.log(elmar.length);
-
-// Exercise
-const calAge = function (birthYear) {
-  return 2037 - birthYear;
-};
-
-const years = [1990, 1967, 2002, 2010];
-
-// console.log(calAge(years)); //NAN
-const age1 = calAge(years[0]);
-const age2 = calAge(years[1]);
-const age3 = calAge(years[years.length - 1]);
-console.log([age1, age2, age3]);
-
-// So basically we can place function calls
-// into an Array just fine,
-// because they will produce a value.
-const ages = [
-  calAge(years[0]),
-  calAge(years[2]),
-  calAge(years[years.length - 1]),
-];
-
-console.log(ages);
+if (friends.includes("Steven")) {
+  console.log(`You have a friend called Steven`);
+}
