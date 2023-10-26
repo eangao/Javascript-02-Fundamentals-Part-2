@@ -780,25 +780,59 @@
 // Looping Backwards and Loops in Loops
 /////////////////////////////////////////////////////
 
-const elmarArray = [
-  "Elmar",
-  "Angao",
-  2037 - 1985,
-  "teacher",
-  ["Michael", "Peter", "Steven"],
-  true,
-];
+// const elmarArray = [
+//   "Elmar",
+//   "Angao",
+//   2037 - 1985,
+//   "teacher",
+//   ["Michael", "Peter", "Steven"],
+//   true,
+// ];
 
-for (let i = elmarArray.length - 1; i >= 0; i--) {
-  console.log(`${i} : ${elmarArray[i]}`);
+// for (let i = elmarArray.length - 1; i >= 0; i--) {
+//   console.log(`${i} : ${elmarArray[i]}`);
+// }
+
+// // loop inside a loop
+// for (let exercise = 1; exercise < 4; exercise++) {
+//   console.log(`------------ Starting exercise ${exercise}`);
+
+//   // inner loop
+//   for (let rep = 1; rep < 6; rep++) {
+//     console.log(`Exercise ${exercise}: Lifting weight repetition: ${rep}`);
+//   }
+// }
+
+/////////////////////////////////////////////////////
+// The while Loop
+/////////////////////////////////////////////////////
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repitation ${rep} `);
+// }
+
+let rep = 1;
+
+while (rep <= 10) {
+  console.log(`WHILE: Lifting weights repitation ${rep} `);
+  rep++;
 }
 
-// loop inside a loop
-for (let exercise = 1; exercise < 4; exercise++) {
-  console.log(`------------ Starting exercise ${exercise}`);
+// So this all means that the while loop
+// is more versatile than the for loop,
+// which means that it can be used
+// in a larger variety of situations.
+// And that's because it does not really need a counter.
+// So you put the counter here because we need it
+// for this specific use case.
+// But all the while loop really needs is the condition
+// which needs to stay true for it to keep running.
+// And that condition can be any condition,
 
-  // inner loop
-  for (let rep = 1; rep < 6; rep++) {
-    console.log(`Exercise ${exercise}: Lifting weight repetition: ${rep}`);
-  }
+let dice = Math.trunc(Math.random() * 6);
+console.log(dice);
+
+while (dice !== 5) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6);
+  if (dice === 5) console.log(`Loop is about to end... ${dice}`);
 }
