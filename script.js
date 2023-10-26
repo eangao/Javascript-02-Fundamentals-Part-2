@@ -720,6 +720,66 @@
 // Looping Arrays, Breaking and Continuing
 /////////////////////////////////////////////////
 
+// const elmarArray = [
+//   "Elmar",
+//   "Angao",
+//   2037 - 1985,
+//   "teacher",
+//   ["Michael", "Peter", "Steven"],
+//   true,
+// ];
+
+// const type = [];
+
+// for (let i = 0; i < elmarArray.length; i++) {
+//   // reading from elmar array
+//   console.log(elmarArray[i], typeof elmarArray[i]);
+
+//   // filling types array  //
+//   // type[i] = typeof elmarArray[i];
+//   type.push(typeof elmarArray[i]);
+// }
+
+// console.log(type);
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+
+// for (let i = 0; i < years.length; i++) {
+//   ages.push(2037 - years[i]);
+// }
+
+// console.log(ages);
+
+// // continue and break
+
+// // So continue is to exit the current iteration of the loop
+// // and continue to the next one.
+// // On the other hand, break is used
+// // to completely terminate the whole loop.
+
+// console.log("------------ONLY STRINGS");
+// for (let i = 0; i < elmarArray.length; i++) {
+//   if (typeof elmarArray[i] !== "string") continue;
+
+//   console.log(elmarArray[i], typeof elmarArray[i]);
+// }
+
+// // // break
+// // And now finally, let me just show you how break works.
+// // And remember that what break does
+// // is to completely terminate the whole loop.
+// console.log("------------ONLY NUMBER");
+// for (let i = 0; i < elmarArray.length; i++) {
+//   if (typeof elmarArray[i] === "number") break;
+
+//   console.log(elmarArray[i], typeof elmarArray[i]);
+// }
+
+/////////////////////////////////////////////////////
+// Looping Backwards and Loops in Loops
+/////////////////////////////////////////////////////
+
 const elmarArray = [
   "Elmar",
   "Angao",
@@ -729,49 +789,16 @@ const elmarArray = [
   true,
 ];
 
-const type = [];
-
-for (let i = 0; i < elmarArray.length; i++) {
-  // reading from elmar array
-  console.log(elmarArray[i], typeof elmarArray[i]);
-
-  // filling types array  //
-  // type[i] = typeof elmarArray[i];
-  type.push(typeof elmarArray[i]);
+for (let i = elmarArray.length - 1; i >= 0; i--) {
+  console.log(`${i} : ${elmarArray[i]}`);
 }
 
-console.log(type);
+// loop inside a loop
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`------------ Starting exercise ${exercise}`);
 
-const years = [1991, 2007, 1969, 2020];
-const ages = [];
-
-for (let i = 0; i < years.length; i++) {
-  ages.push(2037 - years[i]);
-}
-
-console.log(ages);
-
-// continue and break
-
-// So continue is to exit the current iteration of the loop
-// and continue to the next one.
-// On the other hand, break is used
-// to completely terminate the whole loop.
-
-console.log("------------ONLY STRINGS");
-for (let i = 0; i < elmarArray.length; i++) {
-  if (typeof elmarArray[i] !== "string") continue;
-
-  console.log(elmarArray[i], typeof elmarArray[i]);
-}
-
-// // break
-// And now finally, let me just show you how break works.
-// And remember that what break does
-// is to completely terminate the whole loop.
-console.log("------------ONLY NUMBER");
-for (let i = 0; i < elmarArray.length; i++) {
-  if (typeof elmarArray[i] === "number") break;
-
-  console.log(elmarArray[i], typeof elmarArray[i]);
+  // inner loop
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise}: Lifting weight repetition: ${rep}`);
+  }
 }
